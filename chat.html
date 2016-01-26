@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,36 +21,25 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 	
-	<title>Chatting</title>
+	<title>It's a Wiki!</title>
   </head>
   <body>
-   <nav class="navbar navbar-default navbar-fixed-top container">
+  <nav class="navbar navbar-default navbar-fixed-top container">
 	<ul class="nav nav-pills">
-		<li role="presentation" class="active"><a href="index.html">Login</a></li>
-		<li role="presentation"><a href="chat.html">Chat</a></li>
+		<li role="presentation"><a href="index.html">Login</a></li>
+		<li role="presentation" class="active"><a href="chat.html">Chat</a></li>
 	</ul>
   </nav>
-	<div class="container">
-		<h3>You Are: </h3>
-		<br />
-		<h2 id="usname"></h2>
-		<br />
-		<button type="button" id="login" class="btn btn-default">
-			Go <span class="glyphicon glyphicon-ok"></span>
-		</button>
-		<button type="button" id="new" class="btn btn-default">
-			New Page <span class="glyphicon glyphicon-ok"></span>
-		</button>
-	<!--
-		<label for="title">Username</label>
-		<input type="text" class="form-control" id="usname" />
-		<button type="button" id="login" class="btn btn-default">
-			Go <span class="glyphicon glyphicon-ok"></span>
-		</button>
-		<div id="failLog" class="failMessage"></div>
-		<div id="successLog" class="successMessage"></div>
-	<br />
-	-->
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+	
+		<div>
+			<input type="text" class="form-control" placeholder="Start Wikichatting" id="message" />
+		</div>
+		<button class="btn btn-default" id="chat">Submit</button>
+	
+  </nav>
+  
+	<div class="container" id="bottom">
 	</div>
 
 	
@@ -60,7 +50,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	<script src="logon.js" type="text/javascript">
+	<script src="chat.js" type="text/javascript">
 	</script>
   </body>
 </html>

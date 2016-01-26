@@ -16,7 +16,7 @@ $(document).ready(function() {
 			var userRef = firebaseRef.child(user.uid);
 			userRef.set({userName: username});
 		    console.log("Authenticated successfully with payload:", authData);
-		    window.location.assign("index.html");
+		    window.location.assign("chat.html");
 		  }
 		}, { rmember: "sessionOnly"});
 		/*
