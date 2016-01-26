@@ -16,7 +16,24 @@ $(document).ready(function(){
 
 			var userMessage = $("#message").val();
 			messagesRef.push({user: data, message: userMessage});
+			$("#message").val("");
 			});
+		});
+
+		$("#message").keydown(function(e) {
+    		if (e.keyCode == 13) {
+	 			var userAuth = firebaseRef.getAuth();
+				console.log(userAuth.uid);
+				var userRef = firebaseRef.child(userAuth.uid);
+				var usersname = userRef.child("/userName");
+				var usersName = userRef.orderByKey().on("child_added", function(snapshot) {
+					data = snapshot.val();
+
+				var userMessage = $("#message").val();
+				messagesRef.push({user: data, message: userMessage});
+				$("#message").val("");
+				});       		
+    		}
 		});
 
 });
