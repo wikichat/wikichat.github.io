@@ -1,0 +1,5 @@
+text wrapping
+seperate message channels
+user wiki link
+filter out html
+general visual enhancements 
