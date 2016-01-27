@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	var firebaseRef = new Firebase("https://tommyleejones.firebaseio.com/");
 	var messagesRef = firebaseRef.child("messages");
-
+    var favicon = false;
 		messagesRef.on("child_added", function(snapshot, previousNeighborId) {
 		var data = snapshot.val();
 		$("#bottom").before("<div class='container'><div class='col-md-4 chatName'><h3><a target='_blank' href='" + data.wikiLink + "'><img src = '" + data.img + "' height = 50px/>" + data.user + "</a></div><div class='col-md-8 chatMessage'><h3>" + data.message + "</h3></div></div><br />");
@@ -15,6 +15,10 @@ $(document).ready(function(){
 				var name = data.userName;
 				var link = data.userLink;
                 var image = data.userImg;
+                if(!favicon) {
+                    $("head").append("<link rel = 'icon' href = '" + image + "'>");
+                    favicon = true;
+                }
 				var userMessage = $("#message").val();
 				userMessage = userMessage.replace(/<\/?[^>]+(>|$)/g, "");
 				messagesRef.push({user: name, img: image, wikiLink: link, message: userMessage});
@@ -34,6 +38,10 @@ $(document).ready(function(){
 			var name = data.userName;
 			var link = data.userLink;
             var image = data.userImg;
+            if(!favicon) {
+                $("head").append("<link rel = 'icon' href = '" + image + "'>");
+                favicon = true;
+            }
 			var userMessage = $("#message").val();
 			userMessage = userMessage.replace(/<\/?[^>]+(>|$)/g, "");
 			messagesRef.push({user: name, img: image, wikiLink: link, message: userMessage});
