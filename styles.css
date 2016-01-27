@@ -12,4 +12,7 @@ body{
 .navbar-text{
 	color: #795D89;
 }
+.chatMessage{
+	word-wrap: break-word;
+}
 
