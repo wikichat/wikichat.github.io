@@ -1,5 +1,2 @@
-
 seperate message channels
-
-//filter out html probably odne
 general visual enhancements 

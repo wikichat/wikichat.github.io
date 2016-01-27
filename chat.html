@@ -21,7 +21,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 	
-	<title>It's a Wiki!</title>
+	<title>It's a Wiki Chat!</title>
   </head>
   <body>
   <nav class="navbar navbar-default navbar-fixed-top container">
@@ -30,15 +30,12 @@
 		<li role="presentation" class="active"><a href="chat.html">Chat</a></li>
 	</ul>
   </nav>
-  <nav class="navbar navbar-default navbar-fixed-bottom">
+  <nav class="navbar navbar-default navbar-fixed-bottom container" id="botNav">
 	
-		<div>
-	
+		<div class="form-inline">
 			<input type="text" class="form-control" placeholder="Start Wikichatting" id="message" />
+			<button class="btn btn-default" id="chat">Submit</button>
 		</div>
-		
-		<button class="btn btn-default" id="chat">Submit</button>
-	
   </nav>
   
 	<div class="container" id="bottom">

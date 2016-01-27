@@ -22,3 +22,9 @@ body{
 .round{
     border-radius: 6px;
 }
+#message{
+	width: 90%;
+}
+#botNav{
+	padding: 10px;
+}
