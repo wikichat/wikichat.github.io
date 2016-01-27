@@ -69,7 +69,7 @@ $(document).ready(function() {
                                 }
                                 else {
                                     if(data.query.pages === undefined) {
-                                        imgUrl = "Speedwagon(Male).png";
+                                        imgUrl = "Speedwagon(male).png";
                                     }
                                     else {
                                         for(var i in data.query.pages) {
