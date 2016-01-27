@@ -21,6 +21,9 @@ body{
 .round{
     border-radius: 6px;
 }
+.userImg{
+	padding-right: 5px;
+}
 #message{
 	width: 90%;
 }
