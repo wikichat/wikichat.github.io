@@ -1,5 +1,13 @@
 $(document).ready(function(){
 	var firebaseRef = new Firebase("https://tommyleejones.firebaseio.com/");
+	firebaseRef.onAuth(function(authData){
+		 if (authData) {
+		    console.log("User " + authData.uid + " is logged in with " + authData.provider);
+		  } else {
+		     alert("Please login as a page first");
+		     window.location.assign("index.html");
+		  }
+	});
 	var messagesRef = firebaseRef.child("messages");
     var favicon = false;
 		messagesRef.on("child_added", function(snapshot, previousNeighborId) {
