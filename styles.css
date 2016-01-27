@@ -19,3 +19,6 @@ body{
 	word-wrap: break-word;
 }
 
+.round{
+    border-radius: 6px;
+}

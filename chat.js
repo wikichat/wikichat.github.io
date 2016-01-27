@@ -4,7 +4,7 @@ $(document).ready(function(){
     var favicon = false;
 		messagesRef.on("child_added", function(snapshot, previousNeighborId) {
 		var data = snapshot.val();
-		$("#bottom").before("<div class='container'><div class='col-md-4 chatName'><h3><a target='_blank' href='" + data.wikiLink + "'><img src = '" + data.img + "' height = 50px/>" + data.user + "</a></div><div class='col-md-8 chatMessage'><h3>" + data.message + "</h3></div></div><br />");
+		$("#bottom").before("<div class='container round'><div class='col-md-4 chatName'><h3><a target='_blank' href='" + data.wikiLink + "'><img src = '" + data.img + "' height = 50px/>" + data.user + "</a></div><div class='col-md-8 chatMessage'><h3>" + data.message + "</h3></div></div><br />");
 	});
 		$("#chat").click(function(){
 			var userAuth = firebaseRef.getAuth();
