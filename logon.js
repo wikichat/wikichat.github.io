@@ -16,7 +16,10 @@ $(document).ready(function() {
 			var userRef = firebaseRef.child(user.uid);
 			var link = $("#name").attr("href");
             var img = $("#avatar").attr("src");
-			userRef.set({userName: username, userLink: link, userImg: img});
+            var color = randomColor({
+            	luminosity: 'light', hue:'blue'
+            });
+			userRef.set({userName: username, userLink: link, userImg: img, userColor: color});
 		    console.log("Authenticated successfully with payload:", authData);
 		    window.location.assign("chat.html");
 		  }
