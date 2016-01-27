@@ -15,7 +15,8 @@ $(document).ready(function() {
 			var user = firebaseRef.getAuth();
 			var userRef = firebaseRef.child(user.uid);
 			var link = $("#name").attr("href");
-			userRef.set({userName: username, userLink: link});
+            var img = $("#avatar").attr("src");
+			userRef.set({userName: username, userLink: link, userImg: img});
 		    console.log("Authenticated successfully with payload:", authData);
 		    window.location.assign("chat.html");
 		  }
@@ -53,8 +54,37 @@ $(document).ready(function() {
                     success: function (data, textStatus, jqXHR) {
                         //console.log(data.query.random[0].title);
                         //console.log(data.query.random[0]);
+                        var randomPage = data.query.random[0];
                         $("#usname").html="";
-                        $("#usname").html("<a href = 'http://en.wikipedia.org/wiki/?curid=" + data.query.random[0].id + "' target='_blank' id='name'>" + data.query.random[0].title + "</a>");
+                    $.ajax({
+                            type: "GET",
+                            url : "http://en.wikipedia.org/w/api.php?action=query&format=json&generator=images&titles=" + randomPage.title + "&prop=imageinfo&iiprop=url&callback=?",
+                            contentType: "application/json; charset=utf-8",
+                            async: false,
+                            dataType: "json",
+                            success: function(data, textStatus, jqXHR) {    
+                                var imgUrl;
+                                if(data.query === undefined) {
+                                    imgUrl = "Speedwagon(Male).png";
+                                }
+                                else {
+                                    if(data.query.pages === undefined) {
+                                        imgUrl = "Speedwagon(Male).png";
+                                    }
+                                    else {
+                                        for(var i in data.query.pages) {
+                                            imgUrl = data.query.pages[i].imageinfo[0].url;
+                                            break;
+                                        }
+                                    }
+                                }
+                                $("#usname").html("<a href = 'http://en.wikipedia.org/wiki/?curid=" + randomPage.id + "' target='_blank' id='name'><img src = '" + imgUrl + "' width=50px id='avatar'/>" + randomPage.title + "</a>");
+                            },
+                            error: function(errorMessage) {
+                    
+                            }
+                        });
+                        //$("#usname").html("<a href = 'http://en.wikipedia.org/wiki/?curid=" + data.query.random[0].id + "' target='_blank' id='name'>" + data.query.random[0].title + "</a>");
                         //var htmlstring = "You are <a href = 'http://en.wikipedia.org/wiki/?curid=" + data.query.random[0].id + "'>" +data.query.random[0].title + "</a>";
                         //$('#article').html(htmlstring);
                     },
