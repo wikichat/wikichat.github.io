@@ -15,6 +15,7 @@ $(document).ready(function(){
 				data = snapshot.val();
 
 			var userMessage = $("#message").val();
+			userMessage = userMessage.replace(/<\/?[^>]+(>|$)/g, "");
 			messagesRef.push({user: data, message: userMessage});
 			$("#message").val("");
 			});
@@ -30,6 +31,7 @@ $(document).ready(function(){
 					data = snapshot.val();
 
 				var userMessage = $("#message").val();
+				userMessage = userMessage.replace(/<\/?[^>]+(>|$)/g, "");
 				messagesRef.push({user: data, message: userMessage});
 				$("#message").val("");
 				});       		
