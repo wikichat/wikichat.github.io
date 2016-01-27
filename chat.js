@@ -1,13 +1,5 @@
 $(document).ready(function(){
 	var firebaseRef = new Firebase("https://tommyleejones.firebaseio.com/");
-	firebaseRef.onAuth(function(authData){
-		 if (authData) {
-		    console.log("User " + authData.uid + " is logged in with " + authData.provider);
-		  } else {
-		     alert("Please login as a page first");
-		     window.location.assign("index.html");
-		  }
-	});
 	var messagesRef = firebaseRef.child("messages");
 	var messagesLimitRef = firebaseRef.child("messages").limit(50);
     var favicon = false;
@@ -16,6 +8,14 @@ $(document).ready(function(){
 		$("#bottom").before("<div class='container round'><div class='col-md-4 chatName'><h3><a target='_blank' href='" + data.wikiLink + "'><img src = '" + data.img + "' height = 50px/>" + data.user + "</a></div><div class='col-md-8 chatMessage'><h3>" + data.message + "</h3></div></div><br />");
 	});
 		$("#chat").click(function(){
+			firebaseRef.onAuth(function(authData){
+				 if (authData) {
+				    console.log("User " + authData.uid + " is logged in with " + authData.provider);
+				  } else {
+				     alert("Please login as a page first");
+				     window.location.assign("index.html");
+				  }
+			});
 			var userAuth = firebaseRef.getAuth();
 			var userRef = firebaseRef.child(userAuth.uid);
 			var usersname = userRef.child("/userName");
@@ -38,6 +38,14 @@ $(document).ready(function(){
 		});
 
 		$("#message").keydown(function(e) {
+			firebaseRef.onAuth(function(authData){
+				 if (authData) {
+				    console.log("User " + authData.uid + " is logged in with " + authData.provider);
+				  } else {
+				     alert("Please login as a page first");
+				     window.location.assign("index.html");
+				  }
+			});
     		if (e.keyCode == 13) {
 			var userAuth = firebaseRef.getAuth();
 			var userRef = firebaseRef.child(userAuth.uid);
