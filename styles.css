@@ -15,4 +15,7 @@ body{
 .chatMessage{
 	word-wrap: break-word;
 }
+.chatName{
+	word-wrap: break-word;
+}
 

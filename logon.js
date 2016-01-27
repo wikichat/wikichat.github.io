@@ -14,11 +14,12 @@ $(document).ready(function() {
 		} else {
 			var user = firebaseRef.getAuth();
 			var userRef = firebaseRef.child(user.uid);
-			userRef.set({userName: username});
+			var link = $("#name").attr("href");
+			userRef.set({userName: username, userLink: link});
 		    console.log("Authenticated successfully with payload:", authData);
 		    window.location.assign("chat.html");
 		  }
-		}, { rmember: "sessionOnly"});
+		}, { remember: "sessionOnly"});
 		/*
 		firebaseRef.authWithPassword({
 			email: username, password: userpass, remember: "sessionOnly"

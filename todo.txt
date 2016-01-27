@@ -1,5 +1,5 @@
 
 seperate message channels
-user wiki link
+
 //filter out html probably odne
 general visual enhancements 
