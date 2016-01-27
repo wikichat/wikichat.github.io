@@ -65,7 +65,7 @@ $(document).ready(function() {
                             success: function(data, textStatus, jqXHR) {    
                                 var imgUrl;
                                 if(data.query === undefined) {
-                                    imgUrl = "Speedwagon(Male).png";
+                                    imgUrl = "Speedwagon(male).png";
                                 }
                                 else {
                                     if(data.query.pages === undefined) {
