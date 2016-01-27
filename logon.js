@@ -51,8 +51,8 @@ $(document).ready(function() {
                     async: false,
                     dataType: "json",
                     success: function (data, textStatus, jqXHR) {
-                        console.log(data.query.random[0].title);
-                        console.log(data.query.random[0]);
+                        //console.log(data.query.random[0].title);
+                        //console.log(data.query.random[0]);
                         $("#usname").html="";
                         $("#usname").html("<a href = 'http://en.wikipedia.org/wiki/?curid=" + data.query.random[0].id + "' target='_blank' id='name'>" + data.query.random[0].title + "</a>");
                         //var htmlstring = "You are <a href = 'http://en.wikipedia.org/wiki/?curid=" + data.query.random[0].id + "'>" +data.query.random[0].title + "</a>";
