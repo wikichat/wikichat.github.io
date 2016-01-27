@@ -10,7 +10,7 @@ $(document).ready(function(){
 		$("#chat").click(function(){
 			firebaseRef.onAuth(function(authData){
 				 if (authData) {
-				    console.log("User " + authData.uid + " is logged in with " + authData.provider);
+				    //console.log("User " + authData.uid + " is logged in with " + authData.provider);
 				  } else {
 				     alert("Please login as a page first");
 				     window.location.assign("index.html");
@@ -41,7 +41,7 @@ $(document).ready(function(){
 		$("#message").keydown(function(e) {
 			firebaseRef.onAuth(function(authData){
 				 if (authData) {
-				    console.log("User " + authData.uid + " is logged in with " + authData.provider);
+				    //console.log("User " + authData.uid + " is logged in with " + authData.provider);
 				  } else {
 				     alert("Please login as a page first");
 				     window.location.assign("index.html");
