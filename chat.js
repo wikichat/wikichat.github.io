@@ -2,7 +2,6 @@ $(document).ready(function(){
 	var firebaseRef = new Firebase("https://tommyleejones.firebaseio.com/");
 	var messagesRef = firebaseRef.child("messages");
 	var messagesLimitRef = firebaseRef.child("messages").limit(50);
-    var favicon = false;
 		messagesLimitRef.on("child_added", function(snapshot, previousNeighborId) {
 		var data = snapshot.val();
 		$("#bottom").before("<div class='container round' style='background-color:" + data.color + "'><div class='col-md-4 chatName'><h3><a target='_blank' href='" + data.wikiLink + "'><img class='userImg' src = '" + data.img + "' height = 50px/>" + data.user + "</a></h3></div><div class='col-md-8 chatMessage'><h3>" + data.message + "</h3></div></div><br />");
@@ -25,10 +24,6 @@ $(document).ready(function(){
 				var link = data.userLink;
                 var image = data.userImg;
                 var clr = data.userColor;
-                if(!favicon) {
-                    $("head").append("<link rel = 'icon' href = '" + image + "'>");
-                    favicon = true;
-                }
 				var userMessage = $("#message").val();
 				userMessage = userMessage.replace(/<\/?[^>]+(>|$)/g, "");
 				messagesRef.push({user: name, img: image, wikiLink: link, message: userMessage, color: clr});
@@ -57,10 +52,6 @@ $(document).ready(function(){
 				var link = data.userLink;
                 var image = data.userImg;
                 var clr = data.userColor;
-                if(!favicon) {
-                    $("head").append("<link rel = 'icon' href = '" + image + "'>");
-                    favicon = true;
-                }
 				var userMessage = $("#message").val();
 				userMessage = userMessage.replace(/<\/?[^>]+(>|$)/g, "");
 				messagesRef.push({user: name, img: image, wikiLink: link, message: userMessage, color: clr});
